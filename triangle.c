@@ -1,6 +1,11 @@
 #include <stdio.h>
-int main(){
-    void delay(float a){
+#include <stdlib.h>
+
+int x;
+int y;
+int z;
+time_t t;
+void delay(float a){
         int add, time, i;
         time = a * 100000000;
         for(i=0; i<time;i++){
@@ -9,14 +14,7 @@ int main(){
             add++;
         };
     };
-    int x;
-    int y;
-    int z;
-    printf("Enter number: \n");
-    scanf("%d", &z);
-    printf("\nz = %d\n", z);
-    ////////////////////////////////////////////////////////
-    beg:
+void up(){
     for (x = 0 ; x <= z; x++)
     {
         for(y = 0 ; y <= x; y++)
@@ -27,6 +25,8 @@ int main(){
         printf("\n");
     };
     delay(0.05);
+}
+void down(){
     for (x = z ; x >= 1; x--)
     {
         for(y = x ; y >= 1; y--)
@@ -36,7 +36,17 @@ int main(){
         delay(0.05);
         printf("\n");
     };
+}
+int main(){
+    srand((unsigned) time(&t));
+    printf("Enter number: \n");
+    scanf("%d", &z);
+    printf("\nz = %d\n", z);
+    beg:
+    up();
+    //down();
+    z = rand() % 10;
+    //z += 5;
     goto beg;
-    ////////////////////////////////////////////////////////
     return 0;
 }
