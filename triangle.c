@@ -45,8 +45,8 @@ int main(){
     beg:
     up();
     //down();
-    z = rand() % 10;
-    //z += 5;
+    //z = rand() % 10;
+    z ++;
     goto beg;
     return 0;
 }
